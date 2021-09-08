@@ -56,7 +56,7 @@ def fhelp():
 def lab():
     showinfo("Notepad","this notepad is license to 505 company owner kamesh")
 def scab():
-    showinfo("socure code","the socure code in github'path'")
+    showinfo("socure code","the socure code in github'https://github.com/hack505/Notepad-in-python-tkinter.git'")
 # functions
 
 if __name__ == '__main__':
