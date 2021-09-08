@@ -1,4 +1,3 @@
-# imports
 from tkinter import *
 from tkinter.messagebox import showinfo
 from tkinter.filedialog import askopenfilename
@@ -29,7 +28,6 @@ def sfile():
         file = asksaveasfilename(initialfile='Untitled.txt', defaultextension=".txt", filetypes=[("All Files","*.*"),("Text Docments","*.txt")])
         if file =="":
             file = None
-            print (file.get())
         else:
             f = open(file, "w")
             f.write(textarea.get(1.0, END))
@@ -41,7 +39,7 @@ def sfile():
     else:
             f = open(file, "w")
             f.write(textarea.get(1.0, END))
-            f.close() 
+            f.close()
             
 def lfile():
     showinfo("notepad","the function will add later on")
@@ -56,7 +54,7 @@ def shelp():
 def fhelp():
     pass
 def lab():
-    showinfo("Notepad","this notepad is licses to 505 company owner kamesh")
+    showinfo("Notepad","this notepad is license to 505 company owner kamesh")
 def scab():
     showinfo("socure code","the socure code in github'path'")
 # functions
@@ -65,7 +63,7 @@ if __name__ == '__main__':
     #basic tkinter setup
     root = Tk()
     root.title("Untitled - Notepad")
-    #root.wm_iconbitmap("1.ico")  # your can add icon to notepad ,it should be .ico file (icon)
+    #root.wm_iconbitmap("1.ico") # your can add icon to notepad (should be in .ico file, icon)
     root.geometry("1000x680")
     
     #add textarea
@@ -110,15 +108,6 @@ if __name__ == '__main__':
     menubar.add_cascade(label = "Format", menu = formenu)
     # format menu ends
     
-    #view menu starts
-    vmenu = Menu(menubar, tearoff=0)
-    vmenu.add_command(label = "Zoom",  command= lfile)
-    vmenu.add_command(label = "States bar",  command= lfile)
-    
-    menubar.add_cascade(label = "View", menu = vmenu)
-    #view menu ends
-    
-    
     # help starts
     hemenu = Menu(menubar, tearoff=0)
     hemenu.add_command(label = "Shortcuts", command = shelp)
@@ -140,9 +129,14 @@ if __name__ == '__main__':
     scroll.pack(side=RIGHT,fill = "y")
     scroll.config(command=textarea.yview)
     textarea.config(yscrollcommand = scroll.set)
+    #scroll bar ends
     
+    # status bar start
+    statusvar = StringVar()
+    statusvar.set("Notepad                                                                                                                   |Window 100%|   |UFT-8|")
+    sbar = Label(root, textvariable=statusvar, relief=SUNKEN, anchor=W)
+    sbar.pack(side=BOTTOM, fill=BOTH)
     root.config(menu = menubar)
-    
     
     textarea.pack()
     
